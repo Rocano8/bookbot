@@ -1,6 +1,15 @@
+import sys
+
 from stats import get_num_words
 from stats import count_characters_loop
 from stats import sort_and_filter_char_list
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+path_to_file = sys.argv[1]
+
 
 def get_book_text(path_to_file):
     with open(path_to_file, 'r') as file:
@@ -9,7 +18,6 @@ def get_book_text(path_to_file):
 
 
 def main():
-    path_to_file = '/home/warseason/workspace/github.com/Rocano8/bookbot/books/frankenstein.txt'
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {path_to_file}...")
     book_text = get_book_text(path_to_file)
@@ -26,5 +34,5 @@ def main():
     print("============= END ===============")
 
 
-   
-main()
+if __name__ == "__main__":
+    main()
